@@ -1,6 +1,7 @@
 # APP Free Games
 
-O aplicativo tem como objetivo, permitir o registro de usuários na plataforma Free Games, centralizando o acesso ao catálogo de jogos grátis oferecidos por fornecedores na internet, centralizando em uma única plataforma, sem qualquer custo de ingresso ou manutenção, permitindo que o usuário jogue online e monte a sua lista de games favoritas se desejar.
+O aplicativo tem como objetivo, registrar usuários na plataforma Free Games, permitindo total acesso aos catálogos de games grátis oferecidos por fornecedores na web.
+Centraliza em uma única plataforma, sem qualquer custo de ingresso ou manutenção, permitindo que o usuário jogue online e monte a sua lista de games favoritos se desejar.
 
 ### Tecnologias utilizadas
 
@@ -26,7 +27,7 @@ O aplicativo tem como objetivo, permitir o registro de usuários na plataforma F
   
   docker run -d -p 8080:80 front-end-game
 
-- A Aplicação está disponível e basta abrir o http://localhost:6000/#/ no navegador.
+- A Aplicação está disponível e basta abrir o http://localhost:8080/#/ no navegador.
 
 - Caso haja a necessidade de **parar um conatiner**, basta executar os comandos: 
 
