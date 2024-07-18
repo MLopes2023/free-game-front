@@ -24,7 +24,7 @@ O aplicativo tem como objetivo, permitir o registro de usuários na plataforma F
 
 - No mesmo diretório executar como **administrador** o comando abaixo, para execução do container:  
   
-  docker run -d -p 6000 front-end-game
+  docker run -d -p 8080:80 front-end-game
 
 - A Aplicação está disponível e basta abrir o http://localhost:6000/#/ no navegador.
 
