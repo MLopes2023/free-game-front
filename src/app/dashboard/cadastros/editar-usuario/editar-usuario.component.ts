@@ -43,6 +43,7 @@ export class EditarUsuarioComponent implements OnInit {
     });
   }
 
+  // Carrega informações no formulário do usuário
   carregaInformacoes(){
     this.userHttp.buscarId(this.id).subscribe(
       (res: any)=>{
@@ -64,30 +65,49 @@ export class EditarUsuarioComponent implements OnInit {
     )
   }
 
-  onSubmit() {
+  // Edita cadastro do usuário  
+  onSubmit(){
     if (this.userForm.valid) {
-      this.userHttp.editar(this.userForm.value).subscribe((resp: any) => {
+        this.userHttp.editar(this.userForm.value).subscribe( (resp:any)=>{
+          if (resp.idusuario){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Usuario atualizado com sucesso!",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          this.routers.navigate(['/dashboard']);
+          }else{
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Ocorreu erro ao cadastrar!",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        }, (error: any)=>{
           Swal.fire({
             position: "top-end",
-            icon: "success",
-            title: "Usuario atualizado com sucesso!",
+            icon: "error",
+            title: error.error.mesage, 
             showConfirmButton: false,
             timer: 1500
           });
-          this.routers.navigate(['/dashboard']);
-        });
+        })
     }else{
       Swal.fire({
         position: "top-end",
         icon: "warning",
-        title: "Formulario Invalido",
+        title: 'Formulario invalido!',
         showConfirmButton: false,
         timer: 1500
       });
     }
   }
 
-
+  // Consulta cep da api externa 
   onCepBlur() {
 
     const cep = this.userForm.get('cep')?.value;
@@ -118,9 +138,3 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
 }
-
-// export interface ViaCep {
-//   bairro?: string | null;
-//   cidade?: string | null;
-// }
-

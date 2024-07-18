@@ -9,6 +9,7 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
+  // Serviços de Consulta game(s) da api externa  
   listaGames(name: string){
     
     var like = '';

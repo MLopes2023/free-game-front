@@ -1,47 +1,36 @@
-# FrontEndGame
+# APP Free Games
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+O aplicativo tem como objetivo, permitir o registro de usuários na plataforma Free Games, centralizando o acesso ao catálogo de jogos grátis oferecidos por fornecedores na internet, centralizando em uma única plataforma, sem qualquer custo de ingresso ou manutenção, permitindo que o usuário jogue online e monte a sua lista de games favoritas se desejar.
 
-## Development server
+### Tecnologias utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 14
+- Node js 16.14.2
+- Bootstrap
+- Sweetalert2
 
-## Code scaffolding
+### Executar através do Docker
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- É imprescindível ter o Docker instalado e iniciado em seu computador.
 
-## Build
+- Navegue para o diretório em que se encontra o arquivo Dockerfile, executar como **administrador** o comando abaixo, para construção da imagem Docker:  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  docker build -t front-end-game .
 
-## Running unit tests
+- No mesmo diretório executar como **administrador** o comando abaixo, para execução do container:  
+  
+  docker run -d -p 6000 front-end-game
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- A Aplicação está disponível e basta abrir o http://localhost:6000/#/ no navegador.
 
-## Running end-to-end tests
+- Caso haja a necessidade de **parar um conatiner**, basta executar os comandos: 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  Efetuar o comando **docker container ls --all** (vai retornar containers existentes para localização do ID do container para ser utilizado no comando abaixo):
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-
-doc https://sweetalert2.github.io/#download
-npm install sweetalert2
-
-
-https://www.npmjs.com/package/ngx-mask
-$ npm install --save ngx-mask@14.3.3 NO  LINUX
-npm install --save ngx-mask@14.3.3 NO  NPO WINDOWS LINUX
+  Efetuar o comando **docker stop CONTAINER_ID**, sendo CONTAINER_ID recuperado no comanddo anterior.
 
 
-- LEvanto o servidor
-ng s
-
--- Build aplication
-ng build 
+### Arquitetura das Estratégias de Comunicação
 
 
-docker build -t front-end-game .
-docker run -d -p 80:80 front-end-game
+<img src="Arquitetura.jpg">

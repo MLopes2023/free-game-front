@@ -84,10 +84,11 @@
 
 
             <div class="col-sm-12">
-              <label for="email" class="form-label">Eamil</label>
+              <label for="email" class="form-label">E-mail</label>
               <input type="text" class="form-control form-control-sm" formControlName="email">
               <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-danger">
                 <div *ngIf="userForm.get('email')?.errors?.['required']">email obrigatório.</div>
+                <div *ngIf="userForm.get('email')?.errors?.['email']">email invalido.</div>
               </div>
             </div>
 

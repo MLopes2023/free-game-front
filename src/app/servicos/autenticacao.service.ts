@@ -12,33 +12,32 @@ export class AutenticacaoService {
 
   constructor(private http: HttpClient) { }
 
+  // Serviço api da aplicação de autenticação do usuário
   login(form: any){
-
-    // {
-    //   "emailpwd": "mlsilva.lopes@gmail.com",
-    //   "senhapwd": "12345"
-    // }
-    // let query: string = `emailpwd=${form.value.email}&senhapwd=${form.value.password}` 
     return this.http.post<any>(`${environment.url_base}/AutenticacaoUsuario`,form)
   }
 
+  // Serviço api da aplicação de registro do usuário
   cadastro(form: any){
     return this.http.post<any>(`${environment.url_base}/AdicionaUsuario`, form )
   }
 
-
+  // Serviço api da aplicação de edição do registro do usuário
   editar(form: any){
     return this.http.put<any>(`${environment.url_base}/EditaUsuario`, form )
   }
 
+  // Serviço api da aplicação de busca de informações de cadastro do usuário
   buscarId(id: any){
     return this.http.get<any>(`${environment.url_base}/BuscaUsuario?idusuario=${id}` )
   }
   
+  // Serviço local de atualização boolean de usuário logado
   updateLoggedIn($boo: boolean): void {
     this.loggedIn.next($boo);
   }
 
+  // Serviço local de usuário autenticado
   usuarioAutenticado() {
     const idUse = localStorage.getItem('idusuario') || ''
     if(idUse == ''){

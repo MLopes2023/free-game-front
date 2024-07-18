@@ -30,6 +30,7 @@ export class MinhaListaComponent implements OnInit {
     });
   }
 
+  // Edita observação do game da lista do usuário  
   editarMinhaLista(){
 
     this.gamesUsuarioHttp.editarMinhaLista(
@@ -57,7 +58,8 @@ export class MinhaListaComponent implements OnInit {
     });
     
   }
-
+  
+  // Remove game da lista do usuário
   removerMinhaLista(){
     this.gamesUsuarioHttp.removerGame( this.selectedGame.idgame ).subscribe((resp: any)=>{
        Swal.fire({

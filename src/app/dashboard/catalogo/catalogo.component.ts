@@ -26,7 +26,7 @@ export class CatalogoComponent implements OnInit {
     this.atualizar('');
   }
 
-  //atualizar lista de catálogos
+  //atualizar lista de catálogos chamando api de consulta externa
   atualizar(searchTerm: string){
     this.gamesHttp.listaGames(searchTerm).subscribe(
       (resp: any)=>{
@@ -37,7 +37,7 @@ export class CatalogoComponent implements OnInit {
     
   }
    
-  // open c para adicionar game à lista de usuário
+  // open formulário para adicionar game à lista de usuário
   openModal(game: any) {
     this.selectedGame = game;
     const modal = document.getElementById('gameModal');

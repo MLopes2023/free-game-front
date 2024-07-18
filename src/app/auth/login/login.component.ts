@@ -29,13 +29,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Efetuar login do usuário
   onSubmit(){
     if(this.loginForm.valid){
         this.loginHttp.login(this.loginForm.value).subscribe( (response:any)=>{
-          console.log(response)
           if(response.situacaoauth){
             localStorage.setItem('idusuario', response.idusuarioauth );
-
             Swal.fire({
               position: "top-end",
               icon: "success",
@@ -79,6 +78,4 @@ export class LoginComponent implements OnInit {
       this.loginHttp.updateLoggedIn(false);
     }
   }
-
-
 }

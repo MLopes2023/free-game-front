@@ -10,11 +10,13 @@ export class GameUsuarioService {
 
   constructor(private http: HttpClient) { }
 
+  // Serviço api da aplicação de consulta um game usuário logado
   buscaGameUsuario(idgame: any){
     const idusuario = localStorage.getItem('idusuario');
     return this.http.get<any>(`${environment.url_base}/BuscaGameLista?idusuariogame=${idusuario}?idgame=${idgame}`);
   }
 
+  // Serviço api da aplicação de consulta um lista de games do usuário logado
   listaGamesUsuario(name: string){
     
     var like = '';
@@ -25,7 +27,7 @@ export class GameUsuarioService {
     return this.http.get<any>(`${environment.url_base}/BuscaGamesLista?idusuariogame=${idusuario}${like}`);
   }
 
-    
+  // Serviço da api da aplicação para adicionar um game a lista do usuário logado  
   adicionarMinhaLista(idgame: any, observacao: any ){
     const body = {
       "idgame": idgame,
@@ -36,6 +38,7 @@ export class GameUsuarioService {
     return this.http.post<any>(`${environment.url_base}/AdicionaGameLista`,body);
   }
 
+  // Serviço da api da aplicação para editar o campo d observação de um game da lista do usuário logado  
   editarMinhaLista(idgame: any, observacao: any ){
     const body = {
       "idgame": idgame,
@@ -46,7 +49,7 @@ export class GameUsuarioService {
     return this.http.put<any>(`${environment.url_base}/EditaGameLista`,body);
   }
 
-
+  // Serviço da api da aplicação para rmoção do game da lista do usuário logado  
   removerGame(idgame: any){
     const idusuariogame = localStorage.getItem('idusuario');
     return this.http.delete<any>(`${environment.url_base}/RemoveGameLista?idusuariogame=${idusuariogame}&idgame=${idgame}`)

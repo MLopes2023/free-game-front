@@ -37,34 +37,7 @@ export class NovoCadastroComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    if (this.validarSenha()) {
-      this.userHttp.cadastro(this.userForm.value).subscribe((resp: any) => {
-        if (resp.idusuario) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Usuario cadastrado com sucesso!",
-            showConfirmButton: false,
-            timer: 1500
-          });
-
-          localStorage.setItem('idusuario', resp.idusuario);
-          this.router.navigate(['/dashboard']);
-
-        } else {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Ocorreu erro ao cadastrar!",
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
-      })
-    }
-  }
-
+  // Conferência de senhas informadas (devem ser idênticas) 
   validarSenha() {
     if (this.userForm.get('senhapwd')?.value != this.userForm.get('confirmPassword')?.value) {
       Swal.fire({
@@ -79,6 +52,7 @@ export class NovoCadastroComponent implements OnInit {
     return true;
   }
 
+  // Consultar cep da api externa 
   onCepBlur() {
 
     const cep = this.userForm.get('cep')?.value;
@@ -107,13 +81,58 @@ export class NovoCadastroComponent implements OnInit {
       })
     }
   }
+  
+  // Efetuda cadastro do usuário
+  onSubmit(){
+    if (this.userForm.valid) {
+        
+        //valida senha e confirma senha (devem ser idênticas)
+        let senhasvalidas: boolean =  this.validarSenha()
+        if (this.validarSenha() == false){
+          return
+        }
+        
+        // cadastra usuário
+        this.userHttp.cadastro(this.userForm.value).subscribe( (resp:any)=>{
+          if (resp.idusuario){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Usuario cadastrado com sucesso!",
+              showConfirmButton: false,
+              timer: 1500
+            });
+	        localStorage.setItem('idusuario', resp.idusuario);
+          this.router.navigate(['/dashboard']);
+          }else{
 
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Ocorreu erro ao cadastrar!",
+              showConfirmButton: false,
+              timer: 1500
+            });
 
+          }
+        }, (error: any)=>{
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: error.error.mesage, 
+            showConfirmButton: false,
+            timer: 1500
+          });
+        })
+    }else{
+      Swal.fire({
+        position: "top-end",
+        icon: "warning",
+        title: 'Formulario invalido!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  }
 
 }
-
-// export interface ViaCep {
-//   bairro?: string | null;
-//   cidade?: string | null;
-// }
-
