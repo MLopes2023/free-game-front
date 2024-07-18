@@ -1,0 +1,130 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    background-image: url('https://www.google.com/imgres?q=wallpaper%20gamer%20azul&imgurl=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3862583.jpg&imgrefurl=https%3A%2F%2Fwallpapercave.com%2Fblue-gaming-wallpapers&docid=wJE0tbUh8iqyLM&tbnid=IVyWWP0Svzv0LM&vet=12ahUKEwjg2_uir6SHAxV8K7kGHXLgAkwQM3oECCMQAA..i&w=2560&h=1440&hcb=2&ved=2ahUKEwjg2_uir6SHAxV8K7kGHXLgAkwQM3oECCMQAA');
+    /* background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; */
+}
+/* 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 2s ease-in-out;
+} */
+
+.card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    animation: slideIn 1s ease-in-out;
+}
+
+.card-header {
+    text-align: center;
+    background-color: #333;
+    border-bottom: 1px solid #444;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.0rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #f39c12 !important;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.55rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-group input:focus {
+    background-color: #666;
+    transform: scale(1.05);
+}
+
+.btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #f39c12;
+    color: #fff !important;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+.card-footer {
+    text-align: center;
+    background-color: #333;
+    border-top: 1px solid #444;
+    padding: 1rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.card-footer a {
+    color: #f39c12;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card-footer a:hover {
+    text-decoration: underline;
+    color: #e67e22;
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+

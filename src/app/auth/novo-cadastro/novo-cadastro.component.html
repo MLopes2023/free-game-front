@@ -1,0 +1,128 @@
+<header class="header">
+  <div class="logo">Free Games</div>
+</header>
+<br><br><br><br>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Cadastre-se
+        </div>
+        <div class="card-body">
+          <form class="row g-3" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="col-sm-8">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="nome" class="form-control form-control-sm" formControlName="nome">
+              <div *ngIf="userForm.get('nome')?.invalid && userForm.get('nome')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('nome')?.errors?.['required']">Nome obrigatório.</div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cep" class="form-label">CEP</label>
+              <div class="input-group">
+                <input type="text" class="form-control  form-control-sm" formControlName="cep" mask="00000-000"
+                  placeholder="78098-000">
+                <span class="input-group-text" (click)="onCepBlur()" id="basic-addon2"><i
+                    class="bi bi-search"></i></span>
+              </div>
+              <div *ngIf="userForm.get('cep')?.invalid && userForm.get('cep')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('cep')?.errors?.['required']">Cep obrigatório.</div>
+                <div *ngIf="userForm.get('cep')?.errors?.['minlength']">Minino 8 caracteres.</div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="endereco" class="form-label">Endereço</label>
+              <input type="text" class="form-control form-control-sm" formControlName="endereco" placeholder="Rua ...">
+              <div *ngIf="userForm.get('endereco')?.invalid && userForm.get('endereco')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('endereco')?.errors?.['required']">Endereco obrigatório.</div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label for="numero" class="form-label">N°</label>
+              <input type="text" class="form-control form-control-sm" formControlName="numero" placeholder="S/N">
+              <div *ngIf="userForm.get('numero')?.invalid && userForm.get('numero')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('numero')?.errors?.['required']">numero obrigatório.</div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="complemento" class="form-label">Complemento</label>
+              <input type="text" class="form-control form-control-sm" formControlName="complemento">
+              <div *ngIf="userForm.get('complemento')?.invalid && userForm.get('complemento')?.touched"
+                class="text-danger">
+                <div *ngIf="userForm.get('complemento')?.errors?.['required']">complemento obrigatório.</div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="bairro" class="form-label">Bairro</label>
+              <input type="text" class="form-control form-control-sm" formControlName="bairro">
+              <div *ngIf="userForm.get('bairro')?.invalid && userForm.get('bairro')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('bairro')?.errors?.['required']">bairro obrigatório.</div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cidade" class="form-label">Cidade</label>
+              <input type="text" class="form-control form-control-sm" formControlName="cidade">
+              <div *ngIf="userForm.get('cidade')?.invalid && userForm.get('cidade')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('cidade')?.errors?.['required']">cidade obrigatório.</div>
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <label for="uf" class="form-label">UF</label>
+              <input type="text" class="form-control form-control-sm" formControlName="uf">
+              <div *ngIf="userForm.get('uf')?.invalid && userForm.get('uf')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('uf')?.errors?.['required']">uf obrigatório.</div>
+              </div>
+            </div>
+
+
+            <div class="col-sm-12">
+              <label for="email" class="form-label">Eamil</label>
+              <input type="text" class="form-control form-control-sm" formControlName="email">
+              <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('email')?.errors?.['required']">email obrigatório.</div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="inputPassword1" class="form-label">Senha</label>
+              <input type="password" class="form-control form-control-sm" id="inputPassword1"
+                formControlName="senhapwd">
+              <div *ngIf="userForm.get('senhapwd')?.invalid && userForm.get('senhapwd')?.touched" class="text-danger">
+                <div *ngIf="userForm.get('senhapwd')?.errors?.['required']">Senha é obrigatória.</div>
+                <div *ngIf="userForm.get('senhapwd')?.errors?.['minlength']">Senha deve ter pelo menos 6 caracteres.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="inputPassword2" class="form-label">Confirma Senha</label>
+              <input type="password" class="form-control form-control-sm" id="inputPassword2"
+                formControlName="confirmPassword">
+              <div *ngIf="userForm.get('confirmPassword')?.invalid && userForm.get('confirmPassword')?.touched"
+                class="text-danger">
+                <div *ngIf="userForm.get('confirmPassword')?.errors?.['required']">Confirmação de senha é obrigatória.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+
+          </form>
+        </div>
+        <div class="card-footer text-muted text-center">
+          <a [routerLink]="['/login']" class="btn btn-link">Voltar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

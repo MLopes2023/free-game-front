@@ -1,0 +1,63 @@
+<app-header (search)="atualizar($event)" [nameBuscar]="nameBuscar"></app-header>
+
+
+<section class="catalog">
+  <h2>Minha Lista</h2>
+  <div class="catalog-grid">
+    <div *ngFor="let game of listaGames" class="catalog-item">
+      <div class="justify-content-between">
+        <div class="row">
+          <img src="{{game.capa}}" alt="Filme 1" (click)="openModal(game)">
+        </div>
+
+        <div class="row">
+          <h5>{{ game.titulo }}</h5>
+          <p>{{ game.genero }}</p>
+          <p>{{ game.plataforma }}</p>
+        </div>
+
+        <div class="row">
+          <div class="mb-2">
+            <a [href]="game.urlgameperfil" target="_blank" class="button mb-2">Jogue Agora</a>
+            <a [href]="game.urlgame" target="_blank" class="button">Perfil do Jogo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div id="gameModal" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 *ngIf="selectedGame" class="modal-title fs-5" id="exampleModalLabel">{{ selectedGame.titulo }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"  (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="selectedGame">
+          <!-- <h2>{{ selectedGame.titulo }}</h2> -->
+          <img [src]="selectedGame.capa" alt="{{ selectedGame.titulo }}"   loading="lazy">
+          <p>{{ selectedGame.descricao }}</p>
+          <div class="row">
+            <div class="col-md-6">
+              <p>Gênero: {{ selectedGame.genero }}</p>
+            </div>
+            <div class="col-md-6">
+              <p>Plataforma: {{ selectedGame.plataforma }}</p>
+            </div>
+          </div>
+          <textarea type="observacao" class="form-control" id="observacao" placeholder="Observacao" name="observacao" [(ngModel)]="observacao"  maxlength="255"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="button-container"  *ngIf="selectedGame">
+          <a (click)="editarMinhaLista()" class="button" target="_blank">Editar</a>
+          <a (click)="removerMinhaLista()" class="button" target="_blank">Remover</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

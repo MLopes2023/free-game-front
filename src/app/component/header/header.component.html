@@ -1,0 +1,16 @@
+<header class="header">
+    <div class="logo">Free Games</div>
+    <nav class="nav">
+        <ul>
+            <li><a [routerLink]="['/dashboard']">Catálogo</a></li> 
+            <li><a [routerLink]="['/dashboard/minha-lista']">Minha Lista</a></li>
+            <li><a [routerLink]="['/dashboard/editar-usuario', idUsuario]">Minha Conta</a></li>
+            <li><button (click)="sair()">Sair</button></li>
+        </ul>
+        <form class="search-form">
+            <input type="text" placeholder="Buscar..." class="search-input" name="nameBuscar" [(ngModel)]="nameBuscar" >
+            <button type="submit" class="search-button" (click)="handleSearch()">🔍</button>
+        </form>
+    </nav>
+</header>
+<br><br><br><br>

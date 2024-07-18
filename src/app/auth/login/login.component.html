@@ -1,0 +1,36 @@
+<header class="header">
+    <div class="logo">Free Games</div>
+</header>
+<br><br><br><br>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-header">
+                  Login
+              </div>
+              <div class="card-body">
+                  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+                      <div class="form-group">
+                          <label for="inputEmail">Email</label>
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" formControlName="emailpwd">
+                          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                              <div class="text-danger" *ngIf="loginForm.get('email')?.hasError('required')">Email é obrigatório.</div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputPassword">Senha</label>
+                          <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="senhapwd">
+                      </div>
+                      <br>
+                      <button type="submit" class="btn btn-primary btn-block">Acessar</button>
+                  </form>
+              </div>
+              <div class="card-footer text-muted text-center">
+                  <a [routerLink]="['/novo-cadastro']" class="btn btn-link">Resgistre-se</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
