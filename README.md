@@ -9,6 +9,11 @@ O aplicativo tem como objetivo, permitir o registro de usuários na plataforma F
 - Bootstrap
 - Sweetalert2
 
+### Arquitetura das Estratégias de Comunicação
+
+
+<img src="Arquitetura.jpg">
+
 ### Executar através do Docker
 
 - É imprescindível ter o Docker instalado e iniciado em seu computador.
@@ -28,9 +33,3 @@ O aplicativo tem como objetivo, permitir o registro de usuários na plataforma F
   Efetuar o comando **docker container ls --all** (vai retornar containers existentes para localização do ID do container para ser utilizado no comando abaixo):
 
   Efetuar o comando **docker stop CONTAINER_ID**, sendo CONTAINER_ID recuperado no comanddo anterior.
-
-
-### Arquitetura das Estratégias de Comunicação
-
-
-<img src="Arquitetura.jpg">
