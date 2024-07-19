@@ -259,3 +259,13 @@
     background-color: #f40612;
   }
   
+
+  body {
+    background-image: url('./../../../assets/img/fundologin3.jpg');
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-position: top center; /* Centraliza a imagem */
+    height: 100vh; /* Define a altura da página como 100% da altura da tela */
+    margin: 0; /* Remove margens padrão */
+    font-family: Arial, sans-serif; /* Define uma fonte padrão */
+}

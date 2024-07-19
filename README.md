@@ -19,13 +19,15 @@ Centraliza em uma única plataforma, sem qualquer custo de ingresso ou manutenç
 
 - É imprescindível ter o Docker instalado e iniciado em seu computador.
 
-- Navegue para o diretório em que se encontra o arquivo Dockerfile, executar como **administrador** o comando abaixo, para construção da imagem Docker:  
+- Após clonar o repositório, navegue para o diretório em que se encontra o arquivo Dockerfile, executar como **administrador** os comandos abaixo, para construção da imagem Docker: 
 
-  docker build -t front-end-game .
+  - Construir imagem  Docker:
+    
+    docker build -t front-end-game .
 
-- No mesmo diretório executar como **administrador** o comando abaixo, para execução do container:  
+  - Executar o container Docker, conectado à mesma rede das api's api-rest-freegames e api-rest-gateway-externa:
   
-  docker run -d -p 8080:80 front-end-game
+    docker  run  -d  --name  front-end-game  --network  minha_rede  -p  8080:80  front-end-game
 
 - A Aplicação está disponível e basta abrir o http://localhost:8080/#/ no navegador.
 
