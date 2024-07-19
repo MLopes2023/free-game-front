@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  url_base: "http://api-rest-freegames:5000",
-  url_externa: "http://api-rest-gateway-externa:5001"
+  production: false,
+  url_base: "http://localhost:5000",
+  url_externa: "http://localhost:5001"
 };
 
 /*

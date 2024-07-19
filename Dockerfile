@@ -17,15 +17,19 @@ COPY . .
 # Construa o aplicativo Angular
 RUN ng build
 
-# Exponha a porta que a aplicação usará
-EXPOSE 80
-
 # Use uma imagem Nginx para servir os arquivos estáticos
 FROM nginx:alpine
 COPY --from=0 /app/dist/front-end-game /usr/share/nginx/html
 
+#FROM nginx:alpine
+#COPY --from=builder /app/dist/front-end-game /usr/share/nginx/html
+
 # Copie o arquivo de configuração do Nginx
 #COPY nginx.conf /etc/nginx/nginx.conf
+
+
+# Exponha a porta que a aplicação usará
+EXPOSE 80
 
 # Inicie o Nginx
 CMD ["nginx", "-g", "daemon off;"]
